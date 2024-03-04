@@ -21,7 +21,10 @@ class Board:
     
 
 def random_point(size):
-    """."""
+    """
+    Random coordinates generator.
+    """
+    return random.randint(0, size - 1), random.randint(0, size - 1)
 
 def validate_coordinates(x, y, board):
     """."""
