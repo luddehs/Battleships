@@ -73,7 +73,18 @@ def populate_board(board):
 
 
 def make_guess(board):
-    """."""
+    """
+    Enables ability for player to input coordinates.
+    """
+    while True:
+        try:
+            x, y = map(int, input("Enter coordinates (row column): ").split())
+            if not validate_coordinates(x, y, board):
+                print("Invalid coordinates! Please enter coordinates within board bonds.")
+                continue
+            break
+        except ValueError:
+            print("Invalid input! Please enter two integers separated by space (row column).")
 
 def play_game(computer_board, player_board):
     """."""
