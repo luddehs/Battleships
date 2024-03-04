@@ -55,7 +55,10 @@ def random_point(size):
     return random.randint(0, size - 1), random.randint(0, size - 1)
 
 def validate_coordinates(x, y, board):
-    """."""
+    """
+    Validate the given coordinates.
+    """
+    return 0 <= x < board.size and 0 <= y < board.size
 
 def populate_board(board):
     """
