@@ -30,8 +30,7 @@ def populate_board():
     Returns a tuple containing computer and player board.
 
     """
-    global size
-    size = 10 # Board size can be changed here.
+    
     computer_board = Board(size)
     player_board = Board(size)
     return computer_board, player_board
@@ -47,8 +46,9 @@ def new_game():
     """
     Starts a new game, configuring the board size and ship count, clearing scores, and initializing the game boards.
     """
-    size = 10
-    num_ships = 5
+    global size # Board size can be changed here.
+    size = 5
+    num_ships = 4
     scores = {"computer": 0, "player": 0}
     print("BATTLESHIPS\n")
     print("Let's start a new game!\n")
