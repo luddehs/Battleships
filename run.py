@@ -82,7 +82,11 @@ def new_game():
     size = 5
     num_ships = 4
     scores = {"computer": 0, "player": 0}
-    print("BATTLESHIPS\n")
+    print("Welcome to BATTLESHIPS!\n")
+    print(f"The game board size is {size} rows and columns.")
+    print(f"Destroy {num_ships} of your opponents battleships to win.")
+    print("Send your missiles by entering coordinates.")
+    print("Top left corner is row: 0, col: 0\n")
     print("Let's start a new game!\n")
     player_name = input("Please enter your name: \n")
     
