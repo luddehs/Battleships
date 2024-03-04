@@ -9,7 +9,7 @@ class Board:
 
     def __init__(self, size, num_ships, name, type):
         """
-        Initialize the board game object with the given size
+        Initialize the board game object with the given size and game attributes
         """
         self.size = size
         self.grid = [['0' for x in range(size) for y in range(size)]]
@@ -27,7 +27,16 @@ def validate_coordinates(x, y, board):
     """."""
 
 def populate_board():
-    """."""
+    """
+    Initializes game boards and placing ships on them.
+    Returns a tuple containing computer and player board.
+
+    """
+    size = 10 # Board size can be changed here.
+    computer_board = Board(size)
+    player_board = Board(size)
+    return computer_board, player_board
+
 
 def make_guess(board):
     """."""
