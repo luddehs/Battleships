@@ -64,6 +64,7 @@ def new_game():
     print("Let's start a new game!\n")
     player_name = input("Please enter your name: \n")
     
+    computer_board, player_board = populate_board()
 
 
 new_game()
