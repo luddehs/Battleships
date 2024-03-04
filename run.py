@@ -20,9 +20,26 @@ class Board:
         self.ships = []
     
     def print(self):
+        """
+        Prints current state of the board.
+        """
+
         for row in self.board:
             print(" ".join(row))
 
+    def guess(self, x, y):
+        """
+        Allows making a guess on the board.
+        """
+        self.guesses.append((x, y))
+        self.board[x][y] = "X"
+
+        if (x, y) in self.ships:
+            self.board[x][y] = "!"
+            return "Hit"
+        else:
+            return "Miss"
+    
 
 def random_point(size):
     """
