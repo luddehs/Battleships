@@ -19,6 +19,10 @@ class Board:
         self.guesses = []
         self.ships = []
     
+    def print(self):
+        for row in self.board:
+            print(" ".join(row))
+
 
 def random_point(size):
     """
@@ -51,7 +55,6 @@ def new_game():
     """
     Starts a new game, configuring the board size and ship count, clearing scores, and initializing the game boards.
     """
-    global size # Board size can be changed here.
     size = 5
     num_ships = 4
     scores = {"computer": 0, "player": 0}
