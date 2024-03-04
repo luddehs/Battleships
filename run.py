@@ -29,16 +29,16 @@ def random_point(size):
 def validate_coordinates(x, y, board):
     """."""
 
-def populate_board():
+def populate_board(board):
     """
-    Initializes game boards and placing ships on them.
-    Returns a tuple containing computer and player board.
-
+    Random ship placement.
     """
-    
-    computer_board = Board(size)
-    player_board = Board(size)
-    return computer_board, player_board
+    for _ in range(board.num_ships):
+        while True:
+            x, y = random_point(board.size)
+            if (x, y) not in board.ships: 
+                board.ships.append((x, y))
+                break
 
 
 def make_guess(board):
