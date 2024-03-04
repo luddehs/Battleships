@@ -14,8 +14,10 @@ class Board:
         self.size = size
         self.grid = [['0' for x in range(size) for y in range(size)]]
         self.num_ships = num_ships
+        self.name = name
         self.type = type
-        self.ships = {}
+        self.guesses = []
+        self.ships = []
     
 
 def random_point(size):
