@@ -91,6 +91,7 @@ def play_game(computer_board, player_board):
         make_guess(computer_board)
 
         print("\nComputer's turn:")
+        computer_board.print_board()
         x, y = random_point(player_board.size)
         result = player_board.guess(x, y)
         print(f"Computer guessed: ({x}, {y}) - {result}")
