@@ -11,7 +11,7 @@ class Board:
         Initialize the board game object with game attributes.
         """
         self.size = size
-        self.grid = [['0' for _ in range(size)] for _ in range(size)]
+        self.board = [['0' for _ in range(size)] for _ in range(size)]
         self.num_ships = num_ships
         self.name = name
         self.type = type
@@ -22,7 +22,7 @@ class Board:
         """
         Prints current state of the board.
         """
-        for row in self.grid:
+        for row in self.board:
             print(" ".join(row))
 
     def guess(self, x, y):
@@ -31,7 +31,7 @@ class Board:
         """
         self.guesses.append((x, y))
         if (x, y) in self.ships:
-            self.grid[x][y] = "!"
+            self.board[x][y] = "!"
             return "Hit"
         else:
             return "Miss"
@@ -42,7 +42,7 @@ class Board:
         else:
             self.ships.append((x, y))
             if self.type == "player":
-                self.grid[x][y] = "#"
+                self.board[x][y] = "#"
 
 def random_point(size):
     """
@@ -73,25 +73,30 @@ def make_guess(board):
     """
     while True:
         try:
-            x, y = map(int, input("Enter coordinates (row column): ").split())
+            x, y = map(int, input("Enter coordinates to guess (row column): ").split())
             if not validate_coordinates(x, y, board):
-                print("Invalid coordinates! Please enter coordinates within board bonds.")
+                print("Invalid coordinates! Please try again.")
+                continue
+            if (x, y) in board.guesses:
+                print("You have already guessed that. Please try again.")
                 continue
             break
         except ValueError:
-            print("Invalid input! Please enter two integers separated by space (row column).")
+            print("Invalid input! Please enter two integers separated by space.")
+    
+    result = board.guess(x, y)
+    print(result)
 
 def play_game(computer_board, player_board):
     """
     Main game loop.
     """
     while True:
-        print("\nPlayer's turn:")
+        print("\nPlayer's Board:")
         player_board.print_board()
         make_guess(computer_board)
-        print(f"Player guessed: ({x}, {y}) - {result}")
 
-        print("\nComputer's turn:")
+        print("\nComputer's Board:")
         computer_board.print_board()
         x, y = random_point(player_board.size)
         result = player_board.guess(x, y)
@@ -103,10 +108,10 @@ def play_game(computer_board, player_board):
             scores["player"] += 1
 
         if scores["computer"] == player_board.num_ships:
-            print("Computer wins!")
+            print("\nComputer wins!")
             break
         elif scores["player"] == computer_board.num_ships:
-            print("Player wins!")
+            print("\nPlayer wins!")
             break
 
 def new_game():
