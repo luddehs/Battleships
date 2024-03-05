@@ -89,6 +89,7 @@ def play_game(computer_board, player_board):
         print("\nPlayer's turn:")
         player_board.print_board()
         make_guess(computer_board)
+        print(f"Player guessed: ({x}, {y}) - {result}")
 
         print("\nComputer's turn:")
         computer_board.print_board()
