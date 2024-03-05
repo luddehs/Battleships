@@ -18,12 +18,11 @@ class Board:
         self.guesses = []
         self.ships = []
     
-    def print(self):
+    def print_board(self):
         """
         Prints current state of the board.
         """
-
-        for row in self.board:
+        for row in self.grid:
             print(" ".join(row))
 
     def guess(self, x, y):
