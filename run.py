@@ -11,7 +11,7 @@ class Board:
         Initialize the board game object with game attributes.
         """
         self.size = size
-        self.grid = [['0' for x in range(size) for y in range(size)]]
+        self.grid = [['0' for _ in range(size)] for _ in range(size)]
         self.num_ships = num_ships
         self.name = name
         self.type = type
