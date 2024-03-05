@@ -1,7 +1,6 @@
 import random
 
 scores = {"computer": 0, "player": 0}
-
 class Board:
     """
     Represents the game board.
@@ -9,7 +8,7 @@ class Board:
 
     def __init__(self, size, num_ships, name, type):
         """
-        Initialize the board game object with the given size and game attributes.
+        Initialize the board game object with game attributes.
         """
         self.size = size
         self.grid = [['0' for x in range(size) for y in range(size)]]
@@ -71,7 +70,6 @@ def populate_board(board):
                 board.ships.append((x, y))
                 break
 
-
 def make_guess(board):
     """
     Enables ability for player to input coordinates.
@@ -114,7 +112,7 @@ def play_game(computer_board, player_board):
 
 def new_game():
     """
-    Starts a new game, configuring the board size and ship count, clearing scores, and initializing the game boards.
+    Starts a new game, initializing game boards and clearing scores.
     """
     size = 5
     num_ships = 4
