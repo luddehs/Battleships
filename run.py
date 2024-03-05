@@ -87,7 +87,30 @@ def make_guess(board):
             print("Invalid input! Please enter two integers separated by space (row column).")
 
 def play_game(computer_board, player_board):
-    """."""
+    """
+    Main game loop.
+    """
+    while True:
+        print("\nPlayer's turn:")
+        player_board.print_board()
+        make_guess(computer_board)
+
+        print("\nComputer's turn:")
+        x, y = random_point(player_board.size)
+        result = player_board.guess(x, y)
+        print(f"Computer guessed: ({x}, {y}) - {result}")
+
+        if result == "Hit":
+            scores["computer"] += 1
+        elif result == "Miss":
+            scores["player"] += 1
+
+        if scores["computer"] == player_board.num_ships:
+            print("Computer wins!")
+            break
+        elif scores["player"] == computer_board.num_ships:
+            print("Player wins!")
+            break
 
 def new_game():
     """
