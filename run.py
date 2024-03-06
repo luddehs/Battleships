@@ -11,7 +11,7 @@ class Board:
         Initialize the board game object with game attributes.
         """
         self.size = size
-        self.board = [['0' for _ in range(size)] for _ in range(size)]
+        self.board = [['.' for _ in range(size)] for _ in range(size)]
         self.num_ships = num_ships
         self.name = name
         self.type = type
@@ -30,8 +30,10 @@ class Board:
         Allows making a guess on the board.
         """
         self.guesses.append((x, y))
+        self.board[x][y] = "X"
+        
         if (x, y) in self.ships:
-            self.board[x][y] = "!"
+            self.board[x][y] = "*"
             return "Hit"
         else:
             return "Miss"
