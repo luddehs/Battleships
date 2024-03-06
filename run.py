@@ -75,7 +75,7 @@ def make_guess(board):
     """
     while True:
         try:
-            x, y = map(int, input("Enter coordinates to guess (row column): ").split())
+            x, y = map(int, input("Enter (row column) coordinates: ").split())
             if not validate_coordinates(x, y, board):
                 print("Invalid coordinates! Please try again.")
                 continue
@@ -89,12 +89,12 @@ def make_guess(board):
     result = board.guess(x, y)
     print(result)
 
-def play_game(computer_board, player_board):
+def play_game(computer_board, player_board,):
     """
     Main game loop.
     """
     while True:
-        print("\nPlayer's Board:")
+        print(f"\n{player_name}'s Board:")
         player_board.print_board()
         make_guess(computer_board)
 
@@ -122,13 +122,15 @@ def new_game():
     """
     size = 5
     num_ships = 4
-    scores = {"computer": 0, "player": 0}
+    scores["computer"] = 0
+    scores["player"] = 0
     print("Welcome to BATTLESHIPS!\n")
     print(f"The game board size is {size} rows and columns.")
     print(f"Destroy {num_ships} of your opponents battleships to win.")
     print("Send your missiles by entering coordinates.")
     print("Top left corner is row: 0, col: 0\n")
     print("Let's start a new game!\n")
+    global player_name
     player_name = input("Please enter your name: \n")
     
     computer_board = Board(size, num_ships, "Computer", type="computer")
