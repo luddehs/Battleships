@@ -62,12 +62,10 @@ def populate_board(board):
     """
     Random ship placement.
     """
-    for _ in range(board.num_ships):
-        while True:
-            x, y = random_point(board.size)
-            if (x, y) not in board.ships: 
-                board.ships.append((x, y))
-                break
+    while len(board.ships) < board.num_ships:
+        x, y = random_point(board.size)
+        if (x, y) not in board.ships: 
+            board.ships.append((x, y))
 
 def make_guess(board):
     """
