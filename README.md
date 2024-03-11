@@ -1,32 +1,89 @@
-![CI logo](https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png)
+# Battleships 
 
-Welcome,
+Battleships is an engaging strategy-based guessing game where you can challenge the computer. At the outset, both the player and the computer receive a 5x5 grid, each with four randomly positioned ships. The ship locations are concealed from the opposing player; while the player can view their own ships, the computer's ships remain hidden. To make a guess, input coordinates, comprising one row integer and one column integer separated by a space. After guessing, you will either hit or miss; duplicates of the same coordinates are not allowed. The ultimate aim of the game is to sink all of the opponent's ships.
 
-This is the Code Institute student template for deploying your third portfolio project, the Python command-line project. The last update to this file was: **March 14, 2023**
 
-## Reminders
+The live link can be found here - [Battleships]()
 
-- Your code must be placed in the `run.py` file
-- Your dependencies must be placed in the `requirements.txt` file
-- Do not edit any of the other files or your code may not deploy properly
+![Site Mockup]()
 
-## Creating the Heroku app
+Table of Contents
 
-When you create the app, you will need to add two buildpacks from the _Settings_ tab. The ordering is as follows:
+  * [Site Owner Goals](#site-owner-goals)
+  * [User Stories](#user-stories)
+    + [First Time User](#first-time-user)
+    + [Returning user](#returning-user)
+    + [Frequent user](#frequent-user)
+  * [Logic Flow](#logic-flow)  
+  * [Features](#features)
+    + [](#)
+    + [](#)
+    + [](#)
+    + [](#)
+    + [](#)
+    + [Features Left to Implement](#features-left-to-implement)
+  * [Testing](#testing)
+    + [Validator Testing](#validator-testing)
+      - [Python](#python)
+      - [Accessibility](#accessibility)
+    + [Input Testing](#input-testing)
+    + [Game Testing](#game-testing)
+    + [Fixed Bugs](#fixed-bugs)
+      - [](#)
+    + [Known Bugs](#known-bugs)
+  * [Technologies Used](#technologies-used)
+    + [Languages](#languages)
+    + [Frameworks - Libraries - Programs Used](#frameworks---libraries---programs-used)
+  * [Deployment](#deployment)
+  * [Cloning](#cloning)
+  * [Credits](#credits)
+    + [Content](#content)
+    + [Media](#media)
+    + [Resources Used](#resources-used)
+  * [Acknowledgments](#acknowledgments)
 
-1. `heroku/python`
-2. `heroku/nodejs`
 
-You must then create a _Config Var_ called `PORT`. Set this to `8000`
+## How to Play
 
-If you have credentials, such as in the Love Sandwiches project, you must create another _Config Var_ called `CREDS` and paste the JSON into the value field.
+## Site Owner Goals
 
-Connect your GitHub repository and deploy as normal.
+## User Stories
 
-## Constraints
+- ### As a user I want to:
 
-The deployment terminal is set to 80 columns by 24 rows. That means that each line of text needs to be 80 characters or less otherwise it will be wrapped onto a second line.
 
----
+## Logic Flow
 
-Happy coding!
+![Flow Chart]()
+
+
+## Features
+
+
+## Data Model
+
+## Testing
+
+### PEP8 Testing
+
+### Input Testing
+
+### Other Game Testing
+
+## Libraries and Technologies Used
+
+### Python Libraries:
+
+### Programs Used
+
+## Known Bugs
+
+## Fixed Bugs
+
+## Deployment
+
+## Credits 
+
+### Resources Used
+
+## Acknowledgments
