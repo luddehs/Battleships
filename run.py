@@ -95,13 +95,13 @@ def make_guess(board):
     result = board.guess(x, y)
     print(result)
 
-def play_game(computer_board, player_board,):
+def play_game(computer_board, player_board, player_name):
     """
     Main game loop.
     """
     while True:
         print(f"\n{player_name}'s Board:")
-        player_board.print_board()
+        player_board.print_board(True)
         make_guess(computer_board)
 
         print("\nComputer's Board:")
@@ -122,6 +122,16 @@ def play_game(computer_board, player_board,):
             print("\nPlayer wins!")
             break
 
+def get_username():
+    input_is_valid = False
+    while input_is_valid is False:
+        player_name = input("Please enter your name: \n")
+        if len(player_name) >=3:
+            input_is_valid = True
+        else:
+            print('Username must consists of at least 3 letters.')
+    return player_name
+
 def new_game():
     """
     Starts a new game, initializing game boards and clearing scores.
@@ -137,7 +147,7 @@ def new_game():
     print("Top left corner is row: 0, col: 0\n")
     print("Let's start a new game!\n")
     global player_name
-    player_name = input("Please enter your name: \n")
+    player_name = get_username()
     
     computer_board = Board(size, num_ships, "Computer", type="computer")
     player_board = Board(size, num_ships, player_name, type="player")
@@ -146,6 +156,6 @@ def new_game():
         populate_board(player_board)
         populate_board(computer_board)
 
-    play_game(computer_board, player_board)
+    play_game(computer_board, player_board, player_name)
 
 new_game()
