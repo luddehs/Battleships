@@ -18,13 +18,28 @@ class Board:
         self.guesses = []
         self.ships = []
     
-    def print_board(self):
+    def print_board(self, show=False):
         """
         Prints current state of the board.
         """
-        for row in self.board:
-            print(" ".join(row))
+        print(self.ships)
+        y_index = 0
 
+        for row in self.board:
+            x_index = 0
+            row_chars = ''
+            for coordinate in row:
+                if show is False:
+                    row_chars += f' {coordinate}'
+                else:
+                    if (y_index, x_index) in self.ships:
+                        row_chars +=  ' #'
+                    else:
+                        row_chars += f' {coordinate}'
+                x_index = x_index + 1
+            print(f'{row_chars} \n')
+            y_index = y_index + 1
+            
     def guess(self, x, y):
         """
         Allows making a guess on the board.
