@@ -44,8 +44,22 @@ Table of Contents
 
 
 ## How to Play
+- Before starting the game, you need to choose a name consisting of at least three letters and press enter.
+- Once your name is validated, your game board, consisting of five rows and five columns, will be displayed, with four ships randomly positioned on it.
+- Your opponent, the computer, will also receive a game board with its ships hidden from you.
+- Now, the game begins:
+  - Make a guess by entering coordinates.
+  - Input two integers ranging from 0 to 4, separated by a space. The top-left corner corresponds to row 0, column 0.
+  - Press enter to submit your guess.
+- Updated game boards will be printed and reveal the outcome of each guess:
+  - If your guess hits a ship, a "*" will appear at the coordinates, accompanied by a "Hit!" message.
+  - If your guess misses, an "X" will appear at the coordinates, along with a "Miss!" message.
+- To win, either you or the computer must sink all of the opponent's ships.
 
 ## Site Owner Goals
+
+- To offer users a captivating game experience that is both challenging and rewarding.
+- To deliver an application that is easy to use and performs functions seamlessly.
 
 ## User Stories
 

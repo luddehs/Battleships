@@ -1,5 +1,6 @@
 import random
 
+
 scores = {"computer": 0, "player": 0}
 class Board:
     """
