@@ -127,11 +127,11 @@ def play_game(computer_board, player_board, player_name):
 def get_username():
     input_is_valid = False
     while input_is_valid is False:
-        player_name = input("Please enter your name: \n")
+        player_name = input("Enter fleet name: \n")
         if len(player_name) >=3:
             input_is_valid = True
         else:
-            print('Username must consists of at least 3 letters.')
+            print("Fleet name must consist of at least three characters")
     return player_name
 
 def new_game():

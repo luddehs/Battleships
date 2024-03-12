@@ -60,10 +60,15 @@ Table of Contents
 ## Features
 
 ### Title and Introduction Section
-- The user is met by the Battleships title, a welcome message and a input asking for their name.
-- The Battleships title was created using Pyfiglet which takes ASCII text and renders it into ASCII art fonts.
+- The user is greeted by the title "Battleships," a welcome message and an input asking for their name.
+- The "Battleships" title was created using Pyfiglet, which converts ASCII text into ASCII art fonts.
+- Beneath the title, instructions on how to play are provided.
+- Once the user is ready to play, they are prompted to enter their name. 
 
 ![Welcome Screen]()
+
+- Strong data validation is applied to the username input. Users are required to input usernames consisting of a minimum of three characters. If the user enters invalid data, an error message prompt: "Fleet name must consist of at least three characters" and users will be prompted to re-enter their name.
+
 
 ## Data Model
 
