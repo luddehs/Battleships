@@ -33,7 +33,7 @@ class Board:
                 elif show is False and (y_index, x_index) not in self.guesses:
                     row_chars += ' .'  
                 elif show is True and (y_index, x_index) in self.ships:
-                    row_chars += ' #'  
+                    row_chars += ' 0'  
                 else:
                     row_chars += ' ' + coordinate
                 x_index += 1
@@ -116,10 +116,10 @@ def play_game(computer_board, player_board, player_name):
         elif result == "Miss!":
             scores["player"] += 1
 
-        if scores["computer"] == player_board.num_ships:
+        if all(coord in player_board.guesses for coord in player_board.ships):
             print("\nComputer wins!")
             break
-        elif scores["player"] == computer_board.num_ships:
+        elif all(coord in computer_board.guesses for coord in computer_board.ships):
             print("\nPlayer wins!")
             break
 
