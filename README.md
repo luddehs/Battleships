@@ -93,6 +93,12 @@ Table of Contents
 
 ## Fixed Bugs
 
+
+
+### Missing Display of Ship Hits on Player's Board 
+Previously, when the computer successfully hit a ship, the '*' character indicating the hit was not displayed on the player's board.
+To address this issue, I had to modify the print_board method in the Board class. Now, regardless of the value of the show parameter, hits on opponent ships are always displayed with the '*' character on the boards.
+
 ## Deployment
 
 ## Credits 

@@ -28,16 +28,17 @@ class Board:
             x_index = 0
             row_chars = ''
             for coordinate in row:
-                if show is False:
-                    row_chars += f' {coordinate}'
+                if (y_index, x_index) in self.guesses and (y_index, x_index) in self.ships:
+                    row_chars += ' *'  
+                elif show is False and (y_index, x_index) not in self.guesses:
+                    row_chars += ' .'  
+                elif show is True and (y_index, x_index) in self.ships:
+                    row_chars += ' #'  
                 else:
-                    if (y_index, x_index) in self.ships:
-                        row_chars +=  ' #'
-                    else:
-                        row_chars += f' {coordinate}'
-                x_index = x_index + 1
+                    row_chars += ' ' + coordinate
+                x_index += 1
             print(f'{row_chars} \n')
-            y_index = y_index + 1
+            y_index += 1
             
     def guess(self, x, y):
         """
