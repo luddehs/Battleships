@@ -23,10 +23,7 @@ class Board:
         """
         Prints current state of the board.
         """
-        print("Top left corner is row: 0, col: 0")
-        print(self.ships)
         y_index = 0
-
         for row in self.board:
             x_index = 0
             row_chars = ''
@@ -51,9 +48,9 @@ class Board:
         
         if (x, y) in self.ships:
             self.board[x][y] = "*"
-            return "Hit"
+            return "Hit!"
         else:
-            return "Miss"
+            return "Miss!"
     
 
 def random_point(size):
@@ -81,14 +78,15 @@ def make_guess(board):
     """
     Enables ability for player to input coordinates.
     """
+    print("Top left corner is: 0 0")
     while True:
         try:
-            x, y = map(int, input("Fire missiles by entering coordinates: ").split())
+            x, y = map(int, input("Launch missiles by entering coordinates: ").split())
             if not validate_coordinates(x, y, board):
                 print("Invalid coordinates! Please enter valid coordinates.")
                 continue
             if (x, y) in board.guesses:
-                print("Target has already been hit! Please enter new coordinates.")
+                print("Target has already been hit. Please enter new coordinates.")
                 continue
             break
         except ValueError:
@@ -110,11 +108,11 @@ def play_game(computer_board, player_board, player_name):
         computer_board.print_board()
         x, y = random_point(player_board.size)
         result = player_board.guess(x, y)
-        print(f"Computer guessed: ({x}, {y}) - {result}")
+        print(f"Computer launched missiles towards: {x} {y} - {result}")
 
-        if result == "Hit":
+        if result == "Hit!":
             scores["computer"] += 1
-        elif result == "Miss":
+        elif result == "Miss!":
             scores["player"] += 1
 
         if scores["computer"] == player_board.num_ships:
@@ -143,11 +141,8 @@ def new_game():
     scores["computer"] = 0
     scores["player"] = 0
     print(pyfiglet.figlet_format("BATTLESHIPS", justify="center", width=80,))
-    print(f"The game board size is {size} rows and columns.")
+    print(f"The game board is {size}x{size}.")
     print(f"Destroy {num_ships} of your opponents battleships to win.")
-    print("Send your missiles by entering coordinates.")
-    #print("Top left corner is row: 0, col: 0\n")
-    print("Let's start a new game!\n")
     global player_name
     player_name = get_username()
     

@@ -69,6 +69,9 @@ Table of Contents
 
 - Strong data validation is applied to the username input. Users are required to input usernames consisting of a minimum of three characters. If the user enters invalid data, an error message prompt: "Fleet name must consist of at least three characters" and users will be prompted to re-enter their name.
 
+### Game Features
+
+- The user is informed that they have 6 chances and they are asked to enter a 5 letter guess.
 
 ## Data Model
 
