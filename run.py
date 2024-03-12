@@ -1,5 +1,5 @@
 import random
-
+import pyfiglet
 
 scores = {"computer": 0, "player": 0}
 class Board:
@@ -23,6 +23,7 @@ class Board:
         """
         Prints current state of the board.
         """
+        print("Top left corner is row: 0, col: 0")
         print(self.ships)
         y_index = 0
 
@@ -82,16 +83,16 @@ def make_guess(board):
     """
     while True:
         try:
-            x, y = map(int, input("Enter (row column) coordinates: ").split())
+            x, y = map(int, input("Fire missiles by entering coordinates: ").split())
             if not validate_coordinates(x, y, board):
-                print("Invalid coordinates! Please try again.")
+                print("Invalid coordinates! Please enter valid coordinates.")
                 continue
             if (x, y) in board.guesses:
-                print("You have already guessed that. Please try again.")
+                print("Target has already been hit! Please enter new coordinates.")
                 continue
             break
         except ValueError:
-            print("Invalid input! Please enter two integers separated by space.")
+            print("Invalid input! Please enter two integers ranging from 0 to 4, separated by space.")
     
     result = board.guess(x, y)
     print(result)
@@ -141,11 +142,11 @@ def new_game():
     num_ships = 4
     scores["computer"] = 0
     scores["player"] = 0
-    print("Welcome to BATTLESHIPS!\n")
+    print(pyfiglet.figlet_format("BATTLESHIPS", justify="center", width=80,))
     print(f"The game board size is {size} rows and columns.")
     print(f"Destroy {num_ships} of your opponents battleships to win.")
     print("Send your missiles by entering coordinates.")
-    print("Top left corner is row: 0, col: 0\n")
+    #print("Top left corner is row: 0, col: 0\n")
     print("Let's start a new game!\n")
     global player_name
     player_name = get_username()

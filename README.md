@@ -10,10 +10,6 @@ The live link can be found here - [Battleships]()
 Table of Contents
 
   * [Site Owner Goals](#site-owner-goals)
-  * [User Stories](#user-stories)
-    + [First Time User](#first-time-user)
-    + [Returning user](#returning-user)
-    + [Frequent user](#frequent-user)
   * [Logic Flow](#logic-flow)  
   * [Features](#features)
     + [](#)
@@ -56,16 +52,6 @@ Table of Contents
   - If your guess misses, an "X" will appear at the coordinates, along with a "Miss!" message.
 - To win, either you or the computer must sink all of the opponent's ships.
 
-## Site Owner Goals
-
-- To offer users a captivating game experience that is both challenging and rewarding.
-- To deliver an application that is easy to use and performs functions seamlessly.
-
-## User Stories
-
-- ### As a user I want to:
-
-
 ## Logic Flow
 
 ![Flow Chart]()
@@ -73,6 +59,11 @@ Table of Contents
 
 ## Features
 
+### Title and Introduction Section
+- The user is met by the Battleships title, a welcome message and a input asking for their name.
+- The Battleships title was created using Pyfiglet which takes ASCII text and renders it into ASCII art fonts.
+
+![Welcome Screen]()
 
 ## Data Model
 
