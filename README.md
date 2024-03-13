@@ -52,24 +52,31 @@ Table of Contents
   - If your guess misses, an "X" will appear at the coordinates, along with a "Miss!" message.
 - To win, either you or the computer must sink all of the opponent's ships.
 
-## Logic Flow
-
-![Flow Chart]()
-
 
 ## Features
 
-### Title and Introduction Section
-- The user is greeted by the title "Battleships," a welcome message and an input asking for their name.
+### Introduction Section
+- The user is greeted by the title "Battleships" and a welcome message.
 - The "Battleships" title was created using Pyfiglet, which converts ASCII text into ASCII art fonts.
 - Beneath the title, instructions on how to play are provided.
-- Once the user is ready to play, they are prompted to enter their name. 
+- Once the user is ready to play, they are prompted to enter their fleet name. 
 
 ![Welcome Screen]()
 
 - Strong data validation is applied to the username input. Users are required to input usernames consisting of a minimum of three characters. If the user enters invalid data, an error message prompt: "Fleet name must consist of at least three characters" and users will be prompted to re-enter their name.
 
 ### Game Features
+- After name validation, the player's board will be printed displaying the location of the randomized ships with "0" and "." for empty spaces. 
+The printed name above the board indicates whether it's the player's or computer's board.
+- A reminder "Top left corner is: 0 0" is displayed to inform the player about the coordinate distribution.
+- Below, an input prompt appears with the text: "Launch missiles at coordinates:", where the player is asked to guess the coordinates to target the computer's ships.
+
+## Guess Input Validation and Error Handling
+- The user's guess undergoes the following input validation:
+  - The guess must consist of two numbers separated by a space. Otherwise, a ValueError message is printed: "Invalid input! Enter two integers ranging from 0 to 4."
+  - Each number in the guess must be an integer ranging from 0 to 4. If not, "Invalid coordinates! Enter valid coordinates." will be displayed.
+  - During gameplay, the user cannot guess the same coordinates twice. In such cases, the message "Target has already been hit. Enter new coordinates." will be shown.
+
 
 ## Data Model
 
@@ -77,8 +84,6 @@ Table of Contents
 
 ### PEP8 Testing
 The python files have all been passed through [CI Python Linter](https://pep8ci.herokuapp.com/#). All python files were checked without any reported errors.
-
-### PEP8 Testing
 
 ### Input Testing
 
@@ -89,6 +94,9 @@ The python files have all been passed through [CI Python Linter](https://pep8ci.
 ### Python Libraries:
 
 ### Programs Used
+- [GitHub](https://github.com/) - Version control.
+- [Heroku](https://dashboard.heroku.com/apps) - Live project deployment.
+- [CI Python Linter](https://pep8ci.herokuapp.com/#) - Python code validation.
 
 ## Known Bugs
 

@@ -30,7 +30,7 @@ class Board:
             x_i = 0
             row_chars = ''
             for coordinate in row:
-                if (y_i, x_i) in self.guesses and (y_i, x_i) in self.ship:
+                if (y_i, x_i) in self.guesses and (y_i, x_i) in self.ships:
                     row_chars += ' *'
                 elif show is False and (y_i, x_i) not in self.guesses:
                     row_chars += ' .'
