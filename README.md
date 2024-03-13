@@ -92,12 +92,15 @@ Table of Contents
 ## Fixed Bugs
 
 
-### Missing * Display of Ship Hits on Player's Board 
+#### Missing * display of ship hits on player's board 
 Previously, when the computer successfully hit a ship, the * character indicating the hit was not displayed on the player's board.
 To address this issue, I had to modify the print_board method in the Board class. Now, regardless of the value of the show parameter, hits on opponent ships are always displayed with the * character on the boards.
 
-### Game Loop Prematurely Terminates
+#### Game loop prematurely terminates
 Previously, the game loop prematurely terminated before all four ships had been hit by either the player or the computer. The termination condition solely relied on the number of hits rather than ensuring all ships had been sunk. This leads to incorrect game endings, potentially declaring a winner before all ships are actually destroyed. To fix this bug, I had to update the play_game function to check if all ships on the opposing board had been sunk rather than just counting the number of hits. This ensures that the game continues until all ships on either board are destroyed, resolving the premature termination issue.
+
+#### Computer guessing the same coordinates multiple times
+Previously, the computer was able to guess the same coordinates multiple times without selecting a new target that hadn't been previously picked. The adjustments made address this issue by ensuring that the computer doesn't repeat guesses of the same coordinates. To accomplish this, a while loop was introduced for random point selection. This loop generates random coordinates (x, y) and checks if those coordinates have already been guessed. If they have, the loop continues generating new random coordinates until it finds a pair that hasn't been guessed yet.
 
 ## Deployment
 

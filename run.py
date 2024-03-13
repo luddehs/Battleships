@@ -108,6 +108,8 @@ def play_game(computer_board, player_board, player_name):
         print("\nComputer's Board:")
         computer_board.print_board()
         x, y = random_point(player_board.size)
+        while (x, y) in player_board.guesses:
+            x, y = random_point(player_board.size)
         result = player_board.guess(x, y)
         print(f"Computer launched missiles towards: {x} {y} - {result}")
 
@@ -156,4 +158,4 @@ def new_game():
 
     play_game(computer_board, player_board, player_name)
 
-new_game()
+    new_game()
