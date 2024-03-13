@@ -87,7 +87,7 @@ def make_guess(board):
     print("Top left corner is: 0 0")
     while True:
         try:
-            x, y = map(int, input("Launch missiles at coordinates: ").split())
+            x, y = map(int, input("Launch missiles at coordinates:\n").split())
             if not validate_coordinates(x, y, board):
                 print("Invalid coordinates! Enter valid coordinates.")
                 continue
