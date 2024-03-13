@@ -35,7 +35,7 @@ class Board:
                 elif show is False and (y_i, x_i) not in self.guesses:
                     row_chars += ' .'
                 elif show is True and (y_i, x_i) in self.ships:
-                    row_chars += ' 0'
+                    row_chars += ' @'
                 else:
                     row_chars += ' ' + coordinate
                 x_i += 1
