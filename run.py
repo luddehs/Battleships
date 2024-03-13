@@ -144,8 +144,11 @@ def new_game():
     scores["computer"] = 0
     scores["player"] = 0
     print(pyfiglet.figlet_format("BATTLESHIPS", justify="center", width=80,))
-    print(f"The game board is {size}x{size}.")
+    print("Welcome!\n")
+    print(f"Each game board is a {size}x{size} grid.")
+    print(f"Launch missiles by entering coordinates: 0 0 for top left.")
     print(f"Destroy {num_ships} of your opponents battleships to win.")
+    print("Only one fleet can be victorious!\n")
     global player_name
     player_name = get_username()
     
@@ -158,4 +161,4 @@ def new_game():
 
     play_game(computer_board, player_board, player_name)
 
-    new_game()
+new_game()
