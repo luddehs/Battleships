@@ -2,6 +2,8 @@ import random
 import pyfiglet
 
 scores = {"computer": 0, "player": 0}
+
+
 class Board:
     """
     Represents the game board.
@@ -18,41 +20,41 @@ class Board:
         self.type = type
         self.guesses = []
         self.ships = []
-    
+
     def print_board(self, show=False):
         """
         Prints current state of the board.
         """
-        y_index = 0
+        y_i = 0
         for row in self.board:
-            x_index = 0
+            x_i = 0
             row_chars = ''
             for coordinate in row:
-                if (y_index, x_index) in self.guesses and (y_index, x_index) in self.ships:
-                    row_chars += ' *'  
-                elif show is False and (y_index, x_index) not in self.guesses:
-                    row_chars += ' .'  
-                elif show is True and (y_index, x_index) in self.ships:
-                    row_chars += ' 0'  
+                if (y_i, x_i) in self.guesses and (y_i, x_i) in self.ship:
+                    row_chars += ' *'
+                elif show is False and (y_i, x_i) not in self.guesses:
+                    row_chars += ' .'
+                elif show is True and (y_i, x_i) in self.ships:
+                    row_chars += ' 0'
                 else:
                     row_chars += ' ' + coordinate
-                x_index += 1
+                x_i += 1
             print(f'{row_chars} \n')
-            y_index += 1
-            
+            y_i += 1
+
     def guess(self, x, y):
         """
         Allows making a guess on the board.
         """
         self.guesses.append((x, y))
         self.board[x][y] = "X"
-        
+
         if (x, y) in self.ships:
             self.board[x][y] = "*"
             return "Hit!"
         else:
             return "Miss!"
-    
+
 
 def random_point(size):
     """
@@ -60,11 +62,13 @@ def random_point(size):
     """
     return random.randint(0, size - 1), random.randint(0, size - 1)
 
+
 def validate_coordinates(x, y, board):
     """
     Validate the given coordinates.
     """
     return 0 <= x < board.size and 0 <= y < board.size
+
 
 def populate_board(board):
     """
@@ -72,8 +76,9 @@ def populate_board(board):
     """
     while len(board.ships) < board.num_ships:
         x, y = random_point(board.size)
-        if (x, y) not in board.ships: 
+        if (x, y) not in board.ships:
             board.ships.append((x, y))
+
 
 def make_guess(board):
     """
@@ -82,19 +87,20 @@ def make_guess(board):
     print("Top left corner is: 0 0")
     while True:
         try:
-            x, y = map(int, input("Launch missiles by entering coordinates: ").split())
+            x, y = map(int, input("Launch missiles at coordinates: ").split())
             if not validate_coordinates(x, y, board):
-                print("Invalid coordinates! Please enter valid coordinates.")
+                print("Invalid coordinates! Enter valid coordinates.")
                 continue
             if (x, y) in board.guesses:
-                print("Target has already been hit. Please enter new coordinates.")
+                print("Target has already been hit. Enter new coordinates.")
                 continue
             break
         except ValueError:
-            print("Invalid input! Please enter two integers ranging from 0 to 4, separated by space.")
-    
+            print("Invalid input! Enter two integers ranging from 0 to 4.")
+
     result = board.guess(x, y)
     print(result)
+
 
 def play_game(computer_board, player_board, player_name):
     """
@@ -121,19 +127,22 @@ def play_game(computer_board, player_board, player_name):
         if all(coord in player_board.guesses for coord in player_board.ships):
             print("\nComputer wins!")
             break
-        elif all(coord in computer_board.guesses for coord in computer_board.ships):
+        elif all(coord in computer_board.guesses
+                 for coord in computer_board.ships):
             print("\nPlayer wins!")
             break
+
 
 def get_username():
     input_is_valid = False
     while input_is_valid is False:
-        player_name = input("Enter fleet name: \n")
-        if len(player_name) >=3:
+        player_name = input("Enter fleet name:\n")
+        if len(player_name) >= 3:
             input_is_valid = True
         else:
             print("Fleet name must consist of at least three characters")
     return player_name
+
 
 def new_game():
     """
@@ -151,7 +160,7 @@ def new_game():
     print("Only one fleet can be victorious!\n")
     global player_name
     player_name = get_username()
-    
+
     computer_board = Board(size, num_ships, "Computer", type="computer")
     player_board = Board(size, num_ships, player_name, type="player")
 
@@ -160,5 +169,6 @@ def new_game():
         populate_board(computer_board)
 
     play_game(computer_board, player_board, player_name)
+
 
 new_game()

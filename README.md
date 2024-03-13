@@ -76,6 +76,9 @@ Table of Contents
 ## Testing
 
 ### PEP8 Testing
+The python files have all been passed through [CI Python Linter](https://pep8ci.herokuapp.com/#). All python files were checked without any reported errors.
+
+### PEP8 Testing
 
 ### Input Testing
 
