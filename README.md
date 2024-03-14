@@ -3,39 +3,29 @@
 Battleships is an engaging strategy-based guessing game where you can challenge the computer. At the outset, both the player and the computer receive a 5x5 grid, each with four randomly positioned ships. The ship locations are concealed from the opposing player; while the player can view their own ships, the computer's ships remain hidden. To make a guess, input coordinates, comprising one row integer and one column integer separated by a space. After guessing, you will either hit or miss; duplicates of the same coordinates are not allowed. The ultimate aim of the game is to sink all of the opponent's ships.
 
 
-The live link can be found here - [Battleships]()
-
-![Site Mockup]()
+The live link can be found here - [Battleships](https://battleships-luddehs-2e4a9e42245c.herokuapp.com/)
 
 Table of Contents
 
-  * [Site Owner Goals](#site-owner-goals)
-  * [Logic Flow](#logic-flow)  
+  * [How to Play](#how-to-play)  
   * [Features](#features)
-    + [](#)
-    + [](#)
-    + [](#)
-    + [](#)
-    + [](#)
-    + [Features Left to Implement](#features-left-to-implement)
+    + [Introduction Section](#introduction-section)
+    + [Game Launch](#game-launch)
+    + [Guess Input Validation and Error Handling](#guess-input-validation-and-error-handling)
+    + [Game Result and Guessing Feedback](#game-result-and-guessing-feedback)
+    + [Future Features](#future-features)
+  * [Data Model](#data-model)
   * [Testing](#testing)
-    + [Validator Testing](#validator-testing)
-      - [Python](#python)
-      - [Accessibility](#accessibility)
+    + [PEP8 Testing](#pep8-testing)
     + [Input Testing](#input-testing)
-    + [Game Testing](#game-testing)
-    + [Fixed Bugs](#fixed-bugs)
-      - [](#)
+    + [Other Game Testing](#other-game-testing)
+  * [Libraries and Technologies Used](#libraries-and-technologies-used)
+    + [Python Libraries](#python-libraries)
+    + [Programs Used](#programs-used)
+  * [Fixed Bugs](#fixed-bugs)
     + [Known Bugs](#known-bugs)
-  * [Technologies Used](#technologies-used)
-    + [Languages](#languages)
-    + [Frameworks - Libraries - Programs Used](#frameworks---libraries---programs-used)
   * [Deployment](#deployment)
-  * [Cloning](#cloning)
   * [Credits](#credits)
-    + [Content](#content)
-    + [Media](#media)
-    + [Resources Used](#resources-used)
   * [Acknowledgments](#acknowledgments)
 
 
@@ -84,6 +74,11 @@ The printed name above the board indicates whether it's the player's or computer
   - "Player wins" is printed if all of the computer's ships are sunk.
   - "Computer wins" is printed if all of the player's ships are sunk.
 
+### Future Features
+- Add a function to quit the game during game-play.
+- Printing scores after every turn.
+- Add a "Play Again" function following completion of the game.
+
 ## Data Model
 The Board class applies the principles of Object-Oriented Programming throughout this project. It encapsulates the state and behavior of the game board, including its size, the number of ships, the player's name, and whether it belongs to the player or the computer. The class provides methods for printing the board's current state and allowing players to make guesses on the board. Additionally, it initializes the board with empty spaces and tracks guessed coordinates and ship positions. Overall, the Board class provides a structured way to manage and interact with the game board within the Battleship game implementation.
 
@@ -117,16 +112,18 @@ The game underwent comprehensive testing to ensure the following features operat
 ## Libraries and Technologies Used
 
 ### Python Libraries:
+- [random](https://docs.python.org/3/library/random.html?highlight=random#module-random) - `random.randint` is utilized for selecting random coordinates to populate the game boards
+- [pyfiglet](https://pypi.org/project/pyfiglet/0.7/) - Used for transforming ASCII text into ASCII art fonts.
 
 ### Programs Used
 - [GitHub](https://github.com/) - Version control.
 - [Heroku](https://dashboard.heroku.com/apps) - Live project deployment.
 - [CI Python Linter](https://pep8ci.herokuapp.com/#) - Python code validation.
 
-## Known Bugs
-
 ## Fixed Bugs
 
+#### Populating the board with too many ships
+Previously, the random placement of ships on each board resulted in an excess of ships compared to the specified num_ships variable, which was set to 4. This issue came from the while True loop, which generated random points until an unoccupied point was found. To deal with this problem, I removed the outer for loop and instead implemented a while loop, which populates the board until the assigned number of ships (board.num_ships) is achieved. This adjustment guarantees that the loop continues until the board contains the correct number of ships.
 
 #### Missing * display of ship hits on player's board 
 Previously, when the computer successfully hit a ship, the * character indicating the hit was not displayed on the player's board.
@@ -138,13 +135,30 @@ Previously, the game loop prematurely terminated before all four ships had been 
 #### Computer guessing the same coordinates multiple times
 Previously, the computer was able to guess the same coordinates multiple times without selecting a new target that hadn't been previously picked. The adjustments made address this issue by ensuring that the computer doesn't repeat guesses of the same coordinates. To accomplish this, a while loop was introduced for random point selection. This loop generates random coordinates (x, y) and checks if those coordinates have already been guessed. If they have, the loop continues generating new random coordinates until it finds a pair that hasn't been guessed yet.
 
+## Known Bugs
+- In the current implementation, there's a bug in the input validation system. Users can input leading zeros before the desired x and y coordinates, such as "004 00001", which will still be accepted as valid integers.
+
 ## Deployment
 
 The site was deployed via [Heroku](https://dashboard.heroku.com/apps), and the live link can be found here: [Battleships](https://battleships-luddehs-2e4a9e42245c.herokuapp.com/)
 
 
-## Credits 
+## Credits
 
 ### Resources Used
+- [W3Schools](https://www.w3schools.com/)
+- [Stack Overflow](https://stackoverflow.com/)
+- [Python Tutor](https://pythontutor.com/)
+- [Python Development Environment in VS Code](https://www.youtube.com/watch?v=-nh9rCzPJ20&ab_channel=CoreySchafer) - This tutorial video helped me set up a Python Development Environment in Visual Studio Code and provided valuable tips for using the IDE.
+- [Virtual Environments on Windows](https://www.youtube.com/watch?v=APOPm01BVrk&ab_channel=CoreySchafer) - This tutorial taught me how to use Virtual Environments with the Built-In venv Module on Windows operating systems.
+- [Virtual environments workflow](https://stackoverflow.com/questions/26399754/how-to-use-python-virtual-environment-in-another-computer) - This article was helpful in setting up a workflow for working with virtual environments on different computers.
+- [ASCII Art](https://www.asciiart.eu/text-to-ascii-art) - I used this website for ASCII Art inspiration. 
+- [GitHub Profile AliOKeeffe](https://github.com/AliOKeeffe) - The structure of this README came from my fellow student.
+- I used the Battleships game structure provided in the Code Institute Python Portfolio Project Scope as the foundation for my project.
+- I followed the steps in the Code Institute Python walkthrough project - Love Sandwiches when setting up my Google Sheets API.
+
 
 ## Acknowledgments
+- Thanks to my mentor Antonio, for his invaluable guidance and advice throughout the project.
+
+- Thanks to the Code Institute slack community for their quick responses and very valuable feedback!
