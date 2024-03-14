@@ -133,9 +133,9 @@ The game underwent comprehensive testing to ensure the following features operat
 #### Populating the board with too many ships
 Previously, the random placement of ships on each board resulted in an excess of ships compared to the specified num_ships variable, which was set to 4. This issue came from the while True loop, which generated random points until an unoccupied point was found. To deal with this problem, I removed the outer for loop and instead implemented a while loop, which populates the board until the assigned number of ships (board.num_ships) is achieved. This adjustment guarantees that the loop continues until the board contains the correct number of ships.
 
-#### Missing * display of ship hits on player's board 
-Previously, when the computer successfully hit a ship, the * character indicating the hit was not displayed on the player's board.
-To address this issue, I had to modify the print_board method in the Board class. Now, regardless of the value of the show parameter, hits on opponent ships are always displayed with the * character on the boards.
+#### Missing "*" display of ship hits on player's board 
+Previously, when the computer successfully hit a ship, the "*" character indicating the hit was not displayed on the player's board.
+To address this issue, I had to modify the print_board method in the Board class. Now, regardless of the value of the show parameter, hits on opponent ships are always displayed with the "*" character on the boards.
 
 #### Game loop prematurely terminates
 Previously, the game loop prematurely terminated before all four ships had been hit by either the player or the computer. The termination condition solely relied on the number of hits rather than ensuring all ships had been sunk. This leads to incorrect game endings, potentially declaring a winner before all ships are actually destroyed. To fix this bug, I had to update the play_game function to check if all ships on the opposing board had been sunk rather than just counting the number of hits. This ensures that the game continues until all ships on either board are destroyed, resolving the premature termination issue.
