@@ -1,6 +1,6 @@
 ![Title](docs/readme_images/battleships_title.png)
 
-Battleships is a guessing game where you can challenge the computer. At the outset, both the player and the computer receive a 5x5 grid, each with four randomly positioned ships. The ship locations are concealed from the opposing player; while the player can view their own ships, the computer's ships remain hidden. To make a guess, input coordinates, comprising one row integer and one column integer separated by a space. After guessing, you will either hit or miss; duplicates of the same coordinates are not allowed. The ultimate aim of the game is to sink all of the opponent's ships.
+Welcome to Battleships! Prepare for an exciting guessing game where you challenge the computer. The game's origins are uncertain, but it has been played by generations with pen and paper, becoming a favorite pastime among soldiers and sailors. The commercial version of Battleship was introduced in 1967, quickly becoming a classic board game enjoyed by millions around the globe. Since then, Battleship has seen various adaptations, including electronic versions and online games, like the one you're about to play!
 
 
 The live link can be found here - [Battleships](https://battleships-luddehs-2e4a9e42245c.herokuapp.com/)
@@ -30,6 +30,7 @@ Table of Contents
 
 
 ## How to Play
+At the outset, both the player and the computer receive a 5x5 grid, each with four randomly positioned ships. The ship locations are concealed from the opposing player; while the player can view their own ships, the computer's ships remain hidden. To make a guess, input coordinates, comprising one row integer and one column integer separated by a space. After guessing, you will either hit or miss; duplicates of the same coordinates are not allowed. The aim of the game is to sink all of the opponent's ships.
 - Before starting the game, you need to choose a name consisting of at least three letters and press enter.
 - Once your name is validated, your game board, consisting of five rows and five columns, will be displayed, with four ships randomly positioned on it.
 - Your opponent, the computer, will also receive a game board with its ships hidden from you.
@@ -71,12 +72,13 @@ The printed name above the board indicates whether it's the player's or computer
 
 ### Game Result and Guessing Feedback
 - Upon entering valid coordinates, the result is instantly displayed. The player and computer boards are printed, and depending on the outcome, a corresponding message is displayed next to the guessed coordinates.
-  - For a hit, * is printed.
-  - For a miss, X is printed.
+  - For a hit, "*" is printed.
+  - For a miss, "X" is printed.
   - "Player wins" is printed if all of the computer's ships are sunk.
   - "Computer wins" is printed if all of the player's ships are sunk.
 
 ![Computer Result](docs/readme_images/computer_result.png)
+
 ![Player Result](docs/readme_images/player_result.png)
 
 ### Future Features
@@ -124,6 +126,7 @@ The game underwent comprehensive testing to ensure the following features operat
 - [GitHub](https://github.com/) - Version control.
 - [Heroku](https://dashboard.heroku.com/apps) - Live project deployment.
 - [CI Python Linter](https://pep8ci.herokuapp.com/#) - Python code validation.
+- [ChatGPT](https://chat.openai.com/) - README.md proof reading.
 
 ## Fixed Bugs
 
