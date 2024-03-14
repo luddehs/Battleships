@@ -6,12 +6,12 @@ scores = {"computer": 0, "player": 0}
 
 class Board:
     """
-    Represents the game board.
+    Represents the game board with its attributes and methods.
     """
 
     def __init__(self, size, num_ships, name, type):
         """
-        Initialize the board game object with game attributes.
+        Initializes the game board object with specified attributes.
         """
         self.size = size
         self.board = [['.' for _ in range(size)] for _ in range(size)]
@@ -23,7 +23,7 @@ class Board:
 
     def print_board(self, show=False):
         """
-        Prints current state of the board.
+        Prints the current state of the board.
         """
         y_i = 0
         for row in self.board:
@@ -44,7 +44,7 @@ class Board:
 
     def guess(self, x, y):
         """
-        Allows making a guess on the board.
+        Allows making a guess on the board and updates the board accordingly.
         """
         self.guesses.append((x, y))
         self.board[x][y] = "X"
@@ -58,21 +58,21 @@ class Board:
 
 def random_point(size):
     """
-    Random coordinates generator.
+    Generates random coordinates within the specified size.
     """
     return random.randint(0, size - 1), random.randint(0, size - 1)
 
 
 def validate_coordinates(x, y, board):
     """
-    Validate the given coordinates.
+    Validates the given coordinates against the board size.
     """
     return 0 <= x < board.size and 0 <= y < board.size
 
 
 def populate_board(board):
     """
-    Random ship placement.
+    Populates the board with ships at random positions.
     """
     while len(board.ships) < board.num_ships:
         x, y = random_point(board.size)
@@ -82,7 +82,7 @@ def populate_board(board):
 
 def make_guess(board):
     """
-    Enables ability for player to input coordinates.
+    Allows the player to input coordinates for making a guess.
     """
     print("Top left corner is: 0 0")
     while True:
@@ -104,7 +104,7 @@ def make_guess(board):
 
 def play_game(computer_board, player_board, player_name):
     """
-    Main game loop.
+    Runs the main game loop until one player wins.
     """
     while True:
         print(f"\n{player_name}'s Board:")
@@ -134,6 +134,9 @@ def play_game(computer_board, player_board, player_name):
 
 
 def get_username():
+    """
+    Prompts the user to enter their username.
+    """
     input_is_valid = False
     while input_is_valid is False:
         player_name = input("Enter fleet name:\n")
