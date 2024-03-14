@@ -1,6 +1,6 @@
-# Battleships 
+![Title](docs/readme_images/battleships_title.png)
 
-Battleships is an engaging strategy-based guessing game where you can challenge the computer. At the outset, both the player and the computer receive a 5x5 grid, each with four randomly positioned ships. The ship locations are concealed from the opposing player; while the player can view their own ships, the computer's ships remain hidden. To make a guess, input coordinates, comprising one row integer and one column integer separated by a space. After guessing, you will either hit or miss; duplicates of the same coordinates are not allowed. The ultimate aim of the game is to sink all of the opponent's ships.
+Battleships is a guessing game where you can challenge the computer. At the outset, both the player and the computer receive a 5x5 grid, each with four randomly positioned ships. The ship locations are concealed from the opposing player; while the player can view their own ships, the computer's ships remain hidden. To make a guess, input coordinates, comprising one row integer and one column integer separated by a space. After guessing, you will either hit or miss; duplicates of the same coordinates are not allowed. The ultimate aim of the game is to sink all of the opponent's ships.
 
 
 The live link can be found here - [Battleships](https://battleships-luddehs-2e4a9e42245c.herokuapp.com/)
@@ -51,7 +51,7 @@ Table of Contents
 - Beneath the title, instructions on how to play are provided.
 - Once the user is ready to play, they are prompted to enter their fleet name. 
 
-![Welcome Screen]()
+![Introduction Section](docs/readme_images/introduction_section.png)
 
 - Strong data validation is applied to the username input. Users are required to input usernames consisting of a minimum of three characters. If the user enters invalid data, an error message prompt: "Fleet name must consist of at least three characters" and users will be prompted to re-enter their name.
 
@@ -61,6 +61,8 @@ The printed name above the board indicates whether it's the player's or computer
 - A reminder "Top left corner is: 0 0" is displayed to inform the player about the coordinate distribution.
 - Below, an input prompt appears with the text: "Launch missiles at coordinates:", where the player is asked to guess the coordinates to target the computer's ships.
 
+![Game Launch](docs/readme_images/game_launch.png)
+
 ### Guess Input Validation and Error Handling
 - The user's guess undergoes the following input validation:
   - The guess must consist of two numbers separated by a space. Otherwise, a ValueError message is printed: "Invalid input! Enter two integers ranging from 0 to 4."
@@ -69,10 +71,13 @@ The printed name above the board indicates whether it's the player's or computer
 
 ### Game Result and Guessing Feedback
 - Upon entering valid coordinates, the result is instantly displayed. The player and computer boards are printed, and depending on the outcome, a corresponding message is displayed next to the guessed coordinates.
-  - For a hit, "*" is printed.
-  - For a miss, "X" is printed.
+  - For a hit, * is printed.
+  - For a miss, X is printed.
   - "Player wins" is printed if all of the computer's ships are sunk.
   - "Computer wins" is printed if all of the player's ships are sunk.
+
+![Computer Result](docs/readme_images/computer_result.png)
+![Player Result](docs/readme_images/player_result.png)
 
 ### Future Features
 - Add a function to quit the game during game-play.
